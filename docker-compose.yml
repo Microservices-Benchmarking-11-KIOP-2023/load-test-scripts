@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  k6_low:
+    image: grafana/k6
+    volumes:
+      - ./scripts:/scripts 
+      - ./test-results:/results
+    command: run /scripts/low.js
+  k6_mid:
+    image: grafana/k6
+    volumes:
+      - ./scripts:/scripts 
+      - ./test-results:/results
+    command: run /scripts/mid.js
+  k6_high:
+    image: grafana/k6
+    volumes:
+      - ./scripts:/scripts 
+      - ./test-results:/results
+    command: run /scripts/high.js
+
