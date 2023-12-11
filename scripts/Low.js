@@ -38,7 +38,7 @@ export function testCity() {
         outDate.setDate(outDate.getDate() + length);
         const outDateString = outDate.toISOString().split('T')[0];
 
-        const res = http.get(`http://host.docker.internal:5000/hotels?inDate=${inDate}&outDate=${outDateString}&lat=${lat}&lon=${lon}`);
+        const res = http.get(`http://${__ENV.MY_HOSTNAME}/hotels?inDate=${inDate}&outDate=${outDateString}&lat=${lat}&lon=${lon}`);
 
         check(res, {
             [`[${cityName}, ${month}, ${length} days, start: ${startDay}] response status is 200`]: (r) => r.status === 200,

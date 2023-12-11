@@ -5,17 +5,17 @@ services:
     volumes:
       - ./scripts:/scripts 
       - ./test-results:/results
-    command: run /scripts/low.js
+    command: run -e MY_HOSTNAME=host.docker.internal:5000 /scripts/low.js
   k6_mid:
     image: grafana/k6
     volumes:
       - ./scripts:/scripts 
       - ./test-results:/results
-    command: run /scripts/mid.js
+    command: run -e MY_HOSTNAME=host.docker.internal:5000 /scripts/mid.js
   k6_high:
     image: grafana/k6
     volumes:
       - ./scripts:/scripts 
       - ./test-results:/results
-    command: run /scripts/high.js
+    command: run -e MY_HOSTNAME=host.docker.internal:5000 /scripts/high.js
 
